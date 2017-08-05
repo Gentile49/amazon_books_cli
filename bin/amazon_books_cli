@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require_relative "../lib/amazon_books_cli.rb"
+
+
+AmazonBooksCli::Book.new
+
+wigit = AmazonBooksCli::Scraper.new
+
+wigit.scrape

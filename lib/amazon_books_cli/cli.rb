@@ -16,7 +16,7 @@ class AmazonBooksCli::Cli
   def list
     i = 0
     while i < 25
-      puts "The number #{i} selection by David Foster Wallace is: " + @wigit.bookList[i + 1]
+      puts "The number #{i + 1} selection by David Foster Wallace is: " + @wigit.bookList[i]
       i += 1
     end
   end
@@ -30,12 +30,15 @@ class AmazonBooksCli::Cli
           input = input.to_i
         end
         case input
-        when 0..25
-          puts "More information on book #{input}." + @wigit.bookDetail(input)
+        when 1..25
+          puts "More information on book #{input}.  " + @wigit.bookDetail(input - 2)
+          menu
         when "list"
           list
         when "exit"
           goodbye
+        else
+          puts "Not sure what you want. Type 1 - 25 for a selection, list or exit."
         end
       end
   end
